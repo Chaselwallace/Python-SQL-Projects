@@ -2,12 +2,12 @@ from database import create_tables, view_cars, view_family, view_children, inser
 
 
 menu = """\n\nPlease select one of the following!
-1) View your family PARENTS
-2) Insert into family tree table
-3) View family car
-4) Insert into family CAR
-5) View children of parent
-6) Insert new child of parent
+1) View your family parents.
+2) Insert into family parent table.
+3) View family car.
+4) Insert into family car.
+5) View children of parent.
+6) Insert new child of parent.
 7) Exit
 
 Your Selection: """
@@ -33,8 +33,8 @@ def prompt_car_view():
 
 def prompt_children_view():
     children = view_children()
-    for _id, child_name, age, parent_id in children:
-        print(f'{_id}, {child_name},{age},{parent_id}')
+    for child in children:
+        print(f'{child[1]}: {child[5]}, {child[6]}')
 
 
 def prompt_insert_parent():

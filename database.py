@@ -13,7 +13,7 @@ CREATE_CAR_TABLE = """CREATE TABLE IF NOT EXISTS cars (id SERIAL PRIMARY KEY, mo
  FOREIGN KEY(parent_id) REFERENCES family(id));"""
 
 VIEW_FAMILY_PARENTS = "SELECT * FROM family;"
-VIEW_TOTAL_FAMILY = "SELECT * FROM family LEFT JOIN children ON family.id = children.parent_id;"
+VIEW_TOTAL_FAMILY = "SELECT * FROM family LEFT JOIN children ON family.id = children.parent_id ORDER BY family.id;"
 VIEW_FAMILY_CAR = "SELECT family.id, family.name, cars.model FROM family LEFT JOIN cars ON family.id = cars.parent_id;"
 
 INSERT_PARENT = "INSERT INTO family (name, salary, location) VALUES (%s, %s, %s);"
